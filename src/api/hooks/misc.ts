@@ -130,8 +130,10 @@ export function useCompleteOnboarding() {
   const qc = useQueryClient();
   return useMutation({
     mutationFn: (body: OnboardingRequest) => api.post<OnboardingResponse>('/onboarding', body),
-    onSuccess: (res) => {
-      qc.setQueryData(qk.me, res.user);
+    // NOTE: we deliberately do NOT update the `me` cache here — that would flip
+    // the onboarding guard and skip the celebratory "done" screen. The page
+    // applies res.user to the cache when the user taps "Enter GRIT".
+    onSuccess: () => {
       qc.invalidateQueries({ queryKey: qk.habits });
       qc.invalidateQueries({ queryKey: qk.settings });
     },

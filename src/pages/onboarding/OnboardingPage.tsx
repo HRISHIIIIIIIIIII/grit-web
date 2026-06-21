@@ -1,8 +1,10 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useQueryClient } from '@tanstack/react-query';
 import { useCompleteOnboarding } from '@/api/hooks/misc';
 import { useMe } from '@/api/hooks/auth';
-import type { MentorTone } from '@/api/types';
+import { qk } from '@/api/keys';
+import type { MeResponse, MentorTone } from '@/api/types';
 import { Button, Checkbox } from '@/components/primitives';
 import { ALL_CATEGORIES, categoryIcon, categoryStyle } from '@/lib/categories';
 import { cx } from '@/lib/cx';
@@ -32,8 +34,10 @@ const ATLAS_MSG = [
 
 export function OnboardingPage() {
   const navigate = useNavigate();
+  const qc = useQueryClient();
   const me = useMe();
   const complete = useCompleteOnboarding();
+  const onboardedUser = useRef<MeResponse | null>(null);
   const [step, setStep] = useState(0);
   const [focus, setFocus] = useState<string[]>([]);
   const [picked, setPicked] = useState<Record<string, SuggestedHabit>>({});
@@ -73,7 +77,7 @@ export function OnboardingPage() {
     (step !== 0 && step !== 1 && step !== 4);
 
   const submit = async () => {
-    await complete.mutateAsync({
+    const res = await complete.mutateAsync({
       focus_areas: focus as never,
       habits: Object.values(picked),
       daily_target: daily,
@@ -82,7 +86,15 @@ export function OnboardingPage() {
       identity_word: identity,
       pact_accepted: pact,
     });
+    onboardedUser.current = res.user;
     setStep(5);
+  };
+
+  const enterApp = () => {
+    // Apply the onboarded user to the cache, THEN navigate so the auth guard
+    // sees onboarding_completed = true and lets us into the app shell.
+    if (onboardedUser.current) qc.setQueryData(qk.me, onboardedUser.current);
+    navigate('/');
   };
 
   const next = () => {
@@ -268,7 +280,7 @@ export function OnboardingPage() {
                 <span className={styles.doneBadge}>⭐ Level 1</span>
                 <span className={styles.doneBadge}>+25 XP</span>
               </div>
-              <Button size="lg" onClick={() => navigate('/')}>
+              <Button size="lg" onClick={enterApp}>
                 Enter GRIT
               </Button>
             </div>
