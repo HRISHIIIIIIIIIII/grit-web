@@ -1,0 +1,35 @@
+.wrap {
+  position: relative;
+  display: inline-flex;
+}
+.bubble {
+  position: absolute;
+  bottom: calc(100% + 9px);
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 12px;
+  color: #fff;
+  background: var(--ink-900);
+  padding: 6px 11px;
+  border-radius: 8px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.14s var(--ease-swift);
+  z-index: 50;
+}
+.wrap:hover .bubble,
+.wrap:focus-within .bubble {
+  opacity: 1;
+}
+.arrow {
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  width: 10px;
+  height: 10px;
+  background: var(--ink-900);
+  transform: translateX(-50%) rotate(45deg);
+}

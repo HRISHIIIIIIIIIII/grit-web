@@ -1,0 +1,33 @@
+.box {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  border: 1.8px solid #d2d5da;
+  background: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  transition:
+    background 0.18s var(--ease-swift),
+    border-color 0.18s var(--ease-swift);
+}
+.checked {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.check {
+  opacity: 0;
+  transition: opacity 0.18s var(--ease-swift);
+  color: #fff;
+}
+.checkOn {
+  opacity: 1;
+}
+.lg {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+}

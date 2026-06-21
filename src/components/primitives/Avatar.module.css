@@ -1,0 +1,23 @@
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 99px;
+  border: 2px solid #fff;
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.stack {
+  display: inline-flex;
+  align-items: center;
+}
+.stack > * + * {
+  margin-left: -12px;
+}
+.more {
+  background: var(--ink-900);
+}

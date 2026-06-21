@@ -1,0 +1,48 @@
+.field {
+  width: 100%;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 14px;
+  color: #16181b;
+  background: #fff;
+  padding: 11px 13px;
+  border: 1px solid #d8dbe0;
+  border-radius: var(--r-md);
+  outline: none;
+  transition:
+    border-color 0.16s var(--ease-swift),
+    box-shadow 0.16s var(--ease-swift);
+}
+.field::placeholder {
+  color: var(--ink-400);
+}
+.field:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+.textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.6;
+}
+.mono {
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+.label {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--ink-700);
+  margin-bottom: 7px;
+}
+.error {
+  border-color: var(--danger);
+}
+.errorText {
+  color: var(--danger);
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 6px;
+}

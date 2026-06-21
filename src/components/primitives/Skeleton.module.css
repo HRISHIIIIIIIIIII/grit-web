@@ -1,0 +1,6 @@
+.sk {
+  background: linear-gradient(90deg, #eef0f1 25%, #f6f7f8 50%, #eef0f1 75%);
+  background-size: 200% 100%;
+  animation: gritShimmer 1.4s linear infinite;
+  border-radius: var(--r-sm);
+}
