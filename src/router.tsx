@@ -5,6 +5,9 @@ import { LoginPage } from '@/pages/auth/LoginPage';
 import { RegisterPage } from '@/pages/auth/RegisterPage';
 import { DashboardPage } from '@/pages/dashboard/DashboardPage';
 import { HabitsPage } from '@/pages/habits/HabitsPage';
+import { RoadmapsPage } from '@/pages/roadmaps/RoadmapsPage';
+import { RoadmapDetailPage } from '@/pages/roadmaps/RoadmapDetailPage';
+import { RoadmapImportPage } from '@/pages/roadmaps/RoadmapImportPage';
 import { Placeholder } from '@/components/Placeholder';
 
 export const router = createBrowserRouter([
@@ -44,9 +47,9 @@ export const router = createBrowserRouter([
       { path: 'habits', element: <HabitsPage /> },
       { path: 'goals', element: <Placeholder title="Goals" /> },
       { path: 'goals/:id', element: <Placeholder title="Goal" /> },
-      { path: 'roadmaps', element: <Placeholder title="Roadmaps" /> },
-      { path: 'roadmaps/import', element: <Placeholder title="Import roadmap" /> },
-      { path: 'roadmaps/:id', element: <Placeholder title="Roadmap" /> },
+      { path: 'roadmaps', element: <RoadmapsPage /> },
+      { path: 'roadmaps/import', element: <RoadmapImportPage /> },
+      { path: 'roadmaps/:id', element: <RoadmapDetailPage /> },
       { path: 'streaks', element: <Placeholder title="Streaks" /> },
       { path: 'achievements', element: <Placeholder title="Achievements" /> },
       { path: 'analytics', element: <Placeholder title="Analytics" /> },
