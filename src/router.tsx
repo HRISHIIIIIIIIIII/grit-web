@@ -3,6 +3,7 @@ import { AppShell } from '@/app/AppShell';
 import { RedirectIfAuthed, RequireAuth, RequireOnboarding } from '@/auth/guards';
 import { LoginPage } from '@/pages/auth/LoginPage';
 import { RegisterPage } from '@/pages/auth/RegisterPage';
+import { DashboardPage } from '@/pages/dashboard/DashboardPage';
 import { Placeholder } from '@/components/Placeholder';
 
 export const router = createBrowserRouter([
@@ -38,7 +39,7 @@ export const router = createBrowserRouter([
       </RequireAuth>
     ),
     children: [
-      { index: true, element: <Placeholder title="Dashboard" /> },
+      { index: true, element: <DashboardPage /> },
       { path: 'habits', element: <Placeholder title="Habits" /> },
       { path: 'goals', element: <Placeholder title="Goals" /> },
       { path: 'goals/:id', element: <Placeholder title="Goal" /> },

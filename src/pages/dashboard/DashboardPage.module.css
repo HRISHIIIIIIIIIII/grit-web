@@ -1,0 +1,91 @@
+.greeting {
+  margin-bottom: 24px;
+}
+.greeting h1 {
+  font-size: 32px;
+}
+.greetingSub {
+  color: var(--ink-500);
+  margin-top: 4px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1.55fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.rightCol {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.cardHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+.cardTitle {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 17px;
+}
+.ringCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+}
+.ringStat {
+  display: flex;
+  gap: 24px;
+}
+.ringStatItem {
+  text-align: center;
+}
+.ringStatNum {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 22px;
+}
+.ringStatLabel {
+  font-size: 11px;
+  color: var(--ink-400);
+  font-weight: 600;
+}
+.row2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.goalItem {
+  padding: 14px 0;
+  border-bottom: 1px solid #f4f5f7;
+}
+.goalItem:last-child {
+  border-bottom: none;
+}
+.goalTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.goalName {
+  font-weight: 600;
+  font-size: 14px;
+}
+.goalPct {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent-strong);
+}
+@media (max-width: 1100px) {
+  .grid,
+  .row2 {
+    grid-template-columns: 1fr;
+  }
+}
