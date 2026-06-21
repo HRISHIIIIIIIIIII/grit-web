@@ -27,7 +27,7 @@ export function ProfilePage() {
     <div>
       <Card dark style={{ marginBottom: 16 }}>
         <div className={styles.hero}>
-          <Avatar name={me.data?.display_name ?? 'You'} size={104} />
+          <Avatar name={me.data?.display_name ?? 'You'} src={me.data?.avatar_url} size={104} />
           <div style={{ flex: 1 }}>
             <div className={styles.heroTop}>
               <h1 style={{ color: '#fff', fontSize: 30 }}>{me.data?.display_name ?? '—'}</h1>

@@ -42,7 +42,7 @@ export function Sidebar() {
         ))}
       </nav>
       <div className={styles.user}>
-        <Avatar name={me.data?.display_name ?? 'You'} size={36} />
+        <Avatar name={me.data?.display_name ?? 'You'} src={me.data?.avatar_url} size={36} />
         <div className={styles.userMeta}>
           <div className={styles.userName}>{me.data?.display_name ?? '—'}</div>
           <div className={styles.userSub}>

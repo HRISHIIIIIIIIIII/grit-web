@@ -1039,6 +1039,8 @@ export interface components {
             display_name: string;
             /** Avatar Seed */
             avatar_seed: string | null;
+            /** Avatar Url */
+            avatar_url: string | null;
             /** Timezone */
             timezone: string;
             /** Identity Word */
@@ -1494,6 +1496,8 @@ export interface components {
             timezone?: string | null;
             /** Avatar Seed */
             avatar_seed?: string | null;
+            /** Avatar Url */
+            avatar_url?: string | null;
         };
         /** UserPublic */
         UserPublic: {
@@ -1505,6 +1509,8 @@ export interface components {
             display_name: string;
             /** Avatar Seed */
             avatar_seed: string | null;
+            /** Avatar Url */
+            avatar_url: string | null;
             /** Timezone */
             timezone: string;
             /** Identity Word */

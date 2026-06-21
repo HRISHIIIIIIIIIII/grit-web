@@ -8,6 +8,7 @@ import { Avatar, Button, Card, Icon, Input, SegmentedControl, Toggle } from '@/c
 import { PageHeader } from '@/components/PageHeader';
 import { ACCENTS, accentKeyFromHex, applyAccent } from '@/lib/theme';
 import { getCoach } from '@/lib/coaches';
+import { fileToAvatarDataUrl } from '@/lib/image';
 import { cx } from '@/lib/cx';
 import styles from './Settings.module.css';
 
@@ -25,6 +26,9 @@ export function SettingsPage() {
   const logout = useLogout();
   const [saved, setSaved] = useState(false);
   const savedTimer = useRef<number>();
+  const photoInput = useRef<HTMLInputElement>(null);
+  const [photoBusy, setPhotoBusy] = useState(false);
+  const [photoError, setPhotoError] = useState<string | null>(null);
 
   const [name, setName] = useState('');
   useEffect(() => {
@@ -35,6 +39,23 @@ export function SettingsPage() {
     setSaved(true);
     window.clearTimeout(savedTimer.current);
     savedTimer.current = window.setTimeout(() => setSaved(false), 1800);
+  };
+
+  const onPhoto = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    e.target.value = ''; // allow re-selecting the same file
+    if (!file) return;
+    setPhotoError(null);
+    setPhotoBusy(true);
+    try {
+      const dataUrl = await fileToAvatarDataUrl(file);
+      await updateMe.mutateAsync({ avatar_url: dataUrl });
+      flashSaved();
+    } catch {
+      setPhotoError('Could not process that image.');
+    } finally {
+      setPhotoBusy(false);
+    }
   };
 
   const s = settings.data;
@@ -59,21 +80,55 @@ export function SettingsPage() {
         <Card>
           <div className={styles.sectionTitle}>Account</div>
           <div style={{ display: 'flex', gap: 18, alignItems: 'center', marginBottom: 16 }}>
-            <Avatar name={me.data?.display_name ?? 'You'} size={64} />
-            <div style={{ flex: 1 }}>
-              <Input
-                label="Display name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                onBlur={() => {
-                  if (name.trim() && name !== me.data?.display_name) {
-                    updateMe.mutate({ display_name: name.trim() });
-                    flashSaved();
-                  }
-                }}
+            <Avatar name={me.data?.display_name ?? 'You'} src={me.data?.avatar_url} size={64} />
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+              <input
+                ref={photoInput}
+                type="file"
+                accept="image/png,image/jpeg,image/webp"
+                hidden
+                onChange={onPhoto}
               />
+              <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  onClick={() => photoInput.current?.click()}
+                  disabled={photoBusy}
+                >
+                  <Icon name="edit" size={15} /> {photoBusy ? 'Uploading…' : 'Change photo'}
+                </Button>
+                {me.data?.avatar_url && (
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => {
+                      updateMe.mutate({ avatar_url: null });
+                      flashSaved();
+                    }}
+                  >
+                    Remove
+                  </Button>
+                )}
+              </div>
+              {photoError && (
+                <span style={{ color: 'var(--danger)', fontSize: 12 }}>{photoError}</span>
+              )}
+              <span style={{ fontSize: 11, color: 'var(--ink-400)' }}>JPG, PNG or WebP</span>
             </div>
           </div>
+          <Input
+            label="Display name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            onBlur={() => {
+              if (name.trim() && name !== me.data?.display_name) {
+                updateMe.mutate({ display_name: name.trim() });
+                flashSaved();
+              }
+            }}
+          />
+          <div style={{ height: 14 }} />
           <Input label="Email" value={me.data?.email ?? ''} disabled />
         </Card>
 

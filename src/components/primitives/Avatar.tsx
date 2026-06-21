@@ -27,9 +27,21 @@ export interface AvatarProps {
   size?: number;
   background?: string;
   className?: string;
+  /** Optional photo (data URL or external URL). Falls back to initials when absent. */
+  src?: string | null;
 }
 
-export function Avatar({ name, size = 38, background, className }: AvatarProps) {
+export function Avatar({ name, size = 38, background, className, src }: AvatarProps) {
+  if (src) {
+    return (
+      <img
+        src={src}
+        alt={name}
+        className={cx(styles.avatar, className)}
+        style={{ width: size, height: size, objectFit: 'cover' }}
+      />
+    );
+  }
   return (
     <span
       className={cx(styles.avatar, className)}
