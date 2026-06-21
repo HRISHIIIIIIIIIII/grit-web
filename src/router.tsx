@@ -14,6 +14,9 @@ import { StreaksPage } from '@/pages/streaks/StreaksPage';
 import { AchievementsPage } from '@/pages/achievements/AchievementsPage';
 import { AnalyticsPage } from '@/pages/analytics/AnalyticsPage';
 import { CommunityPage } from '@/pages/community/CommunityPage';
+import { ProfilePage } from '@/pages/profile/ProfilePage';
+import { NotificationsPage } from '@/pages/notifications/NotificationsPage';
+import { SettingsPage } from '@/pages/settings/SettingsPage';
 import { Placeholder } from '@/components/Placeholder';
 
 export const router = createBrowserRouter([
@@ -60,10 +63,20 @@ export const router = createBrowserRouter([
       { path: 'achievements', element: <AchievementsPage /> },
       { path: 'analytics', element: <AnalyticsPage /> },
       { path: 'community', element: <CommunityPage /> },
-      { path: 'profile', element: <Placeholder title="Profile" /> },
-      { path: 'notifications', element: <Placeholder title="Notifications" /> },
-      { path: 'settings', element: <Placeholder title="Settings" /> },
+      { path: 'profile', element: <ProfilePage /> },
+      { path: 'notifications', element: <NotificationsPage /> },
+      { path: 'settings', element: <SettingsPage /> },
     ],
   },
-  { path: '*', element: <Placeholder title="Not found" /> },
+  {
+    path: '*',
+    element: (
+      <div style={{ display: 'grid', placeItems: 'center', height: '100vh', gap: 8 }}>
+        <h1 style={{ fontSize: 40 }}>404</h1>
+        <a href="/" style={{ color: 'var(--accent-strong)', fontWeight: 600 }}>
+          Back to GRIT
+        </a>
+      </div>
+    ),
+  },
 ]);

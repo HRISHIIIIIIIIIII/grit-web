@@ -1,0 +1,87 @@
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 880px;
+}
+.sectionTitle {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+.fieldLabel {
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--ink-700);
+  margin-bottom: 11px;
+}
+.saved {
+  color: var(--accent-strong);
+  font-weight: 600;
+  font-size: 14px;
+  font-family: var(--font-mono);
+}
+.swatch {
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  border: none;
+  cursor: pointer;
+  transition: box-shadow 0.18s var(--ease-swift);
+}
+.swatchActive {
+  position: relative;
+}
+.toneGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.toneTile {
+  text-align: left;
+  padding: 14px;
+  border-radius: var(--r-md);
+  border: 1.5px solid var(--border);
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.16s var(--ease-swift);
+}
+.toneTile:hover {
+  border-color: var(--ink-300);
+}
+.toneActive {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.toneName {
+  font-weight: 600;
+  font-size: 15px;
+  font-family: var(--font-display);
+}
+.toneNote {
+  font-size: 12px;
+  color: var(--ink-500);
+  margin-top: 3px;
+}
+.toggleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink-700);
+}
+.version {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ink-400);
+  padding: 8px;
+}
+@media (max-width: 720px) {
+  .toneGrid {
+    grid-template-columns: 1fr;
+  }
+}
