@@ -17,7 +17,7 @@ import { CommunityPage } from '@/pages/community/CommunityPage';
 import { ProfilePage } from '@/pages/profile/ProfilePage';
 import { NotificationsPage } from '@/pages/notifications/NotificationsPage';
 import { SettingsPage } from '@/pages/settings/SettingsPage';
-import { Placeholder } from '@/components/Placeholder';
+import { OnboardingPage } from '@/pages/onboarding/OnboardingPage';
 
 export const router = createBrowserRouter([
   {
@@ -40,7 +40,7 @@ export const router = createBrowserRouter([
     path: '/onboarding',
     element: (
       <RequireOnboarding>
-        <Placeholder title="Onboarding" />
+        <OnboardingPage />
       </RequireOnboarding>
     ),
   },
