@@ -10,6 +10,8 @@ import { RoadmapDetailPage } from '@/pages/roadmaps/RoadmapDetailPage';
 import { RoadmapImportPage } from '@/pages/roadmaps/RoadmapImportPage';
 import { GoalsPage } from '@/pages/goals/GoalsPage';
 import { GoalDetailPage } from '@/pages/goals/GoalDetailPage';
+import { StreaksPage } from '@/pages/streaks/StreaksPage';
+import { AchievementsPage } from '@/pages/achievements/AchievementsPage';
 import { Placeholder } from '@/components/Placeholder';
 
 export const router = createBrowserRouter([
@@ -52,8 +54,8 @@ export const router = createBrowserRouter([
       { path: 'roadmaps', element: <RoadmapsPage /> },
       { path: 'roadmaps/import', element: <RoadmapImportPage /> },
       { path: 'roadmaps/:id', element: <RoadmapDetailPage /> },
-      { path: 'streaks', element: <Placeholder title="Streaks" /> },
-      { path: 'achievements', element: <Placeholder title="Achievements" /> },
+      { path: 'streaks', element: <StreaksPage /> },
+      { path: 'achievements', element: <AchievementsPage /> },
       { path: 'analytics', element: <Placeholder title="Analytics" /> },
       { path: 'community', element: <Placeholder title="Community" /> },
       { path: 'profile', element: <Placeholder title="Profile" /> },

@@ -1,0 +1,105 @@
+.trophyRow {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.trophy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 92px;
+  text-align: center;
+}
+.trophyName {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink-300);
+}
+.tierGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.tierTop {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.tierDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 99px;
+}
+.tierName {
+  font-weight: 600;
+  font-size: 14px;
+  flex: 1;
+}
+.tierCount {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-500);
+}
+.badgeGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 14px;
+}
+.badgeCard {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 170px;
+}
+.badgeLocked {
+  opacity: 0.62;
+}
+.legendary {
+  background: var(--ink-900);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 8px 24px rgba(245, 179, 1, 0.22);
+}
+.legendary .badgeDesc {
+  color: var(--ink-400);
+}
+.badgeIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  font-size: 28px;
+}
+.badgeName {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+}
+.badgeDesc {
+  font-size: 13px;
+  color: var(--ink-500);
+  line-height: 1.4;
+  flex: 1;
+}
+.badgeUnlocked {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--success);
+  font-family: var(--font-mono);
+}
+.badgeProgress {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink-400);
+  font-family: var(--font-mono);
+  margin-top: 6px;
+}
+@media (max-width: 720px) {
+  .tierGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
