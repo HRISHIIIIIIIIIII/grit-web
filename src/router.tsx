@@ -8,6 +8,8 @@ import { HabitsPage } from '@/pages/habits/HabitsPage';
 import { RoadmapsPage } from '@/pages/roadmaps/RoadmapsPage';
 import { RoadmapDetailPage } from '@/pages/roadmaps/RoadmapDetailPage';
 import { RoadmapImportPage } from '@/pages/roadmaps/RoadmapImportPage';
+import { GoalsPage } from '@/pages/goals/GoalsPage';
+import { GoalDetailPage } from '@/pages/goals/GoalDetailPage';
 import { Placeholder } from '@/components/Placeholder';
 
 export const router = createBrowserRouter([
@@ -45,8 +47,8 @@ export const router = createBrowserRouter([
     children: [
       { index: true, element: <DashboardPage /> },
       { path: 'habits', element: <HabitsPage /> },
-      { path: 'goals', element: <Placeholder title="Goals" /> },
-      { path: 'goals/:id', element: <Placeholder title="Goal" /> },
+      { path: 'goals', element: <GoalsPage /> },
+      { path: 'goals/:id', element: <GoalDetailPage /> },
       { path: 'roadmaps', element: <RoadmapsPage /> },
       { path: 'roadmaps/import', element: <RoadmapImportPage /> },
       { path: 'roadmaps/:id', element: <RoadmapDetailPage /> },
