@@ -4,6 +4,7 @@ import { RedirectIfAuthed, RequireAuth, RequireOnboarding } from '@/auth/guards'
 import { LoginPage } from '@/pages/auth/LoginPage';
 import { RegisterPage } from '@/pages/auth/RegisterPage';
 import { DashboardPage } from '@/pages/dashboard/DashboardPage';
+import { HabitsPage } from '@/pages/habits/HabitsPage';
 import { Placeholder } from '@/components/Placeholder';
 
 export const router = createBrowserRouter([
@@ -40,7 +41,7 @@ export const router = createBrowserRouter([
     ),
     children: [
       { index: true, element: <DashboardPage /> },
-      { path: 'habits', element: <Placeholder title="Habits" /> },
+      { path: 'habits', element: <HabitsPage /> },
       { path: 'goals', element: <Placeholder title="Goals" /> },
       { path: 'goals/:id', element: <Placeholder title="Goal" /> },
       { path: 'roadmaps', element: <Placeholder title="Roadmaps" /> },

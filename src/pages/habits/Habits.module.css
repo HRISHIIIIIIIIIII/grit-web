@@ -1,0 +1,60 @@
+.fieldLabel {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--ink-700);
+  margin-bottom: 9px;
+}
+.catGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.catChip {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 13px;
+  padding: 7px 13px;
+  border-radius: 99px;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--ink-600);
+  cursor: pointer;
+  transition: all 0.16s var(--ease-swift);
+}
+.catChip:hover {
+  border-color: var(--ink-300);
+}
+.catChipActive {
+  font-weight: 600;
+}
+.sectionTitle {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--ink-400);
+  text-transform: uppercase;
+  margin: 26px 4px 12px;
+}
+.iconBtn {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--ink-500);
+  cursor: pointer;
+  transition: all 0.16s var(--ease-swift);
+}
+.iconBtn:hover {
+  color: var(--ink-800);
+  background: var(--surface);
+}
+.empty {
+  padding: 40px 24px;
+  text-align: center;
+  color: var(--ink-500);
+}
