@@ -50,6 +50,14 @@ npm run dev                   # start the dev server (http://localhost:5173)
 
 That's it — as long as the backend is up.
 
+> **Port 5173 already in use?** Vite will fall back to 5174, but the backend's CORS allows
+> `5173` by default, so free it instead of using 5174:
+> ```bash
+> fuser -k 5173/tcp 2>/dev/null        # or: kill $(lsof -ti tcp:5173)
+> ```
+> (Either way, only `VITE_API_BASE_URL` — the **backend** URL — needs to be correct; the
+> frontend's own port doesn't matter as long as it's in the backend's `GRIT_CORS_ORIGINS`.)
+
 ---
 
 ## Scripts
