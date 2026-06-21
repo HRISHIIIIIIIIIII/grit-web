@@ -1,11 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useMe } from '@/api/hooks/auth';
 import { useUpdateMe } from '@/api/hooks/auth';
 import { useSettings, useUpdateSettings } from '@/api/hooks/misc';
 import { useLogout } from '@/api/hooks/auth';
-import { Avatar, Button, Card, Input, SegmentedControl, Toggle } from '@/components/primitives';
+import { Avatar, Button, Card, Icon, Input, SegmentedControl, Toggle } from '@/components/primitives';
 import { PageHeader } from '@/components/PageHeader';
 import { ACCENTS, accentKeyFromHex, applyAccent } from '@/lib/theme';
+import { getCoach } from '@/lib/coaches';
 import { cx } from '@/lib/cx';
 import styles from './Settings.module.css';
 
@@ -37,6 +39,7 @@ export function SettingsPage() {
 
   const s = settings.data;
   const accentKey = accentKeyFromHex(s?.accent_color);
+  const coach = getCoach(s?.coach);
 
   const setAccent = (hex: string) => {
     applyAccent(accentKeyFromHex(hex)); // live re-theme immediately
@@ -93,8 +96,20 @@ export function SettingsPage() {
         </Card>
 
         <Card>
-          <div className={styles.sectionTitle}>ATLAS mentor</div>
-          <div className={styles.fieldLabel}>Tone</div>
+          <div className={styles.sectionTitle}>{coach.name} · your mentor</div>
+          <Link to="/coaches" className={styles.coachCard}>
+            <img src={coach.image} alt={coach.name} className={styles.coachImg} />
+            <div style={{ flex: 1 }}>
+              <div className={styles.coachName}>
+                {coach.name} · {coach.archetype}
+              </div>
+              <div className={styles.coachHint}>Tap to switch coach — 5 to choose from</div>
+            </div>
+            <Icon name="chevronRight" size={18} style={{ color: 'var(--ink-300)' }} />
+          </Link>
+          <div className={styles.fieldLabel} style={{ marginTop: 18 }}>
+            Tone
+          </div>
           <div className={styles.toneGrid}>
             {TONES.map((t) => (
               <button

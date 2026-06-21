@@ -1,0 +1,156 @@
+.hero {
+  position: relative;
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  padding: 10px;
+}
+.heroImg {
+  width: 150px;
+  height: 150px;
+  border-radius: 28px;
+  object-fit: cover;
+  flex-shrink: 0;
+  animation: gritFloat 4.5s ease-in-out infinite;
+}
+.heroBody {
+  flex: 1;
+}
+.heroArche {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.heroName {
+  color: #fff;
+  font-size: 38px;
+  letter-spacing: -0.02em;
+  margin: 4px 0 8px;
+}
+.heroTagline {
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.heroBio {
+  color: var(--ink-400);
+  font-size: 14px;
+  line-height: 1.55;
+  max-width: 620px;
+}
+.traits {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+.trait {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-300);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 5px 11px;
+  border-radius: 99px;
+}
+.intensityRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+.intensityLabel,
+.voiceLabel {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--ink-500);
+  text-transform: uppercase;
+}
+.dots {
+  display: inline-flex;
+  gap: 5px;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 99px;
+}
+.voiceBlock {
+  margin-top: 16px;
+}
+.voiceText {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 500;
+  color: #fff;
+  margin-top: 4px;
+}
+.inCorner {
+  color: var(--ink-400);
+  font-size: 13px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+.coachCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 20px 16px;
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-lg);
+  cursor: pointer;
+  transition:
+    border-color 0.16s var(--ease-swift),
+    transform 0.16s var(--ease-swift),
+    box-shadow 0.16s var(--ease-swift);
+}
+.coachCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(12, 13, 14, 0.1);
+}
+.coachActive {
+  border-width: 2px;
+}
+.cardImg {
+  width: 64px;
+  height: 64px;
+  border-radius: 17px;
+  object-fit: cover;
+}
+.cardName {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+}
+.cardArche {
+  font-size: 11px;
+  color: var(--ink-400);
+  font-weight: 600;
+}
+.yoursTag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--accent-strong);
+  background: var(--accent-soft);
+  padding: 3px 7px;
+  border-radius: 5px;
+}
+@media (max-width: 760px) {
+  .hero {
+    flex-direction: column;
+  }
+}

@@ -18,6 +18,7 @@ import { ProfilePage } from '@/pages/profile/ProfilePage';
 import { NotificationsPage } from '@/pages/notifications/NotificationsPage';
 import { SettingsPage } from '@/pages/settings/SettingsPage';
 import { OnboardingPage } from '@/pages/onboarding/OnboardingPage';
+import { CoachesPage } from '@/pages/coaches/CoachesPage';
 
 export const router = createBrowserRouter([
   {
@@ -63,6 +64,7 @@ export const router = createBrowserRouter([
       { path: 'achievements', element: <AchievementsPage /> },
       { path: 'analytics', element: <AnalyticsPage /> },
       { path: 'community', element: <CommunityPage /> },
+      { path: 'coaches', element: <CoachesPage /> },
       { path: 'profile', element: <ProfilePage /> },
       { path: 'notifications', element: <NotificationsPage /> },
       { path: 'settings', element: <SettingsPage /> },

@@ -4,7 +4,8 @@ import { useMe } from '@/api/hooks/auth';
 import { useCheckin, useHabits, useUndoCheckin } from '@/api/hooks/habits';
 import { useGoals } from '@/api/hooks/goals';
 import { useAnalytics, useHeatmap, useStreak } from '@/api/hooks/progress';
-import { useAchievements } from '@/api/hooks/misc';
+import { useAchievements, useSettings } from '@/api/hooks/misc';
+import { getCoach } from '@/lib/coaches';
 import type { HabitRead } from '@/api/types';
 import {
   ContributionHeatmap,
@@ -14,7 +15,7 @@ import {
 } from '@/components/charts';
 import { Badge, Button, Card, ProgressBar, SegmentedControl, Skeleton } from '@/components/primitives';
 import { HabitRow, HabitRowSkeleton } from '@/components/HabitRow';
-import { dashboardAtlasMessage, greeting } from './atlas';
+import { coachDashboardMessage, greeting } from './atlas';
 import styles from './DashboardPage.module.css';
 
 export function DashboardPage() {
@@ -24,6 +25,8 @@ export function DashboardPage() {
   const goals = useGoals();
   const analytics = useAnalytics('week');
   const achievements = useAchievements();
+  const settings = useSettings();
+  const coach = getCoach(settings.data?.coach);
   const [range, setRange] = useState<'weeks' | 'year'>('weeks');
   const heatmap = useHeatmap(range);
   const checkin = useCheckin();
@@ -106,7 +109,7 @@ export function DashboardPage() {
               </div>
             </div>
           </Card>
-          <MentorCard message={dashboardAtlasMessage(done, total)} />
+          <MentorCard title={coach.name} message={coachDashboardMessage(coach, done, total)} />
         </div>
       </div>
 

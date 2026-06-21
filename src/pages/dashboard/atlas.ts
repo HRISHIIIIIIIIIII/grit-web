@@ -1,14 +1,14 @@
-/* Client-side ATLAS copy for the dashboard, keyed off today's completion.
-   (The backend's mentor copy library powers notifications; the dashboard card
-   reacts live to the ring, so it computes a line locally in the same voice.) */
-export function dashboardAtlasMessage(done: number, total: number): string {
+import type { Coach } from '@/lib/coaches';
+
+/* Dashboard mentor line, in the selected coach's voice, reacting to today's
+   completion. (The backend mentor library powers notifications; the dashboard
+   card reacts live to the ring, so it composes a line from the coach's voice.) */
+export function coachDashboardMessage(coach: Coach, done: number, total: number): string {
   if (total === 0) return 'No habits scheduled yet. Add one and start your streak today.';
-  if (done === 0) return "A blank slate. Check off your first habit — momentum starts with one.";
-  if (done >= total) return "Perfect day. Every habit done. This is exactly who you said you'd become.";
+  if (done >= total) return coach.voice.win;
+  if (done === 0) return coach.voice.missed;
   const remaining = total - done;
-  if (done / total >= 0.5)
-    return `${done} down, ${remaining} to go. You're past halfway — close it out.`;
-  return `${done} done so far. ${remaining} left today. Keep the chain alive.`;
+  return `${done} done, ${remaining} to go. ${coach.voice.win}`;
 }
 
 export function greeting(name: string): string {

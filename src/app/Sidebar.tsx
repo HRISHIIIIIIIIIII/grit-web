@@ -14,6 +14,7 @@ const NAV: { to: string; label: string; icon: IconName; end?: boolean }[] = [
   { to: '/achievements', label: 'Achievements', icon: 'award' },
   { to: '/analytics', label: 'Analytics', icon: 'analytics' },
   { to: '/community', label: 'Community', icon: 'community' },
+  { to: '/coaches', label: 'Coaches', icon: 'sparkle' },
   { to: '/settings', label: 'Settings', icon: 'settings' },
   { to: '/profile', label: 'Profile', icon: 'profile' },
 ];

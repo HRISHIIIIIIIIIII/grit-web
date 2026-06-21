@@ -1345,6 +1345,8 @@ export interface components {
             /** Accent Color */
             accent_color: string;
             mentor_tone: components["schemas"]["MentorTone"];
+            /** Coach */
+            coach: string;
             /** Sound Enabled */
             sound_enabled: boolean;
             /** Public On Leaderboards */
@@ -1381,6 +1383,8 @@ export interface components {
             /** Accent Color */
             accent_color?: string | null;
             mentor_tone?: components["schemas"]["MentorTone"] | null;
+            /** Coach */
+            coach?: string | null;
             /** Sound Enabled */
             sound_enabled?: boolean | null;
             /** Public On Leaderboards */
