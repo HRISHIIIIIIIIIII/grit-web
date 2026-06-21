@@ -1,0 +1,21 @@
+/* Centralised React Query keys so optimistic updates + invalidations stay consistent. */
+export const qk = {
+  me: ['me'] as const,
+  habits: ['habits'] as const,
+  habitsArchived: ['habits', { archived: true }] as const,
+  goals: ['goals'] as const,
+  goal: (id: number) => ['goals', id] as const,
+  roadmaps: ['roadmaps'] as const,
+  roadmap: (id: number) => ['roadmaps', id] as const,
+  streak: ['streak'] as const,
+  xp: ['xp'] as const,
+  level: ['level'] as const,
+  heatmap: (range: string) => ['heatmap', range] as const,
+  analytics: (period: string) => ['analytics', period] as const,
+  achievements: ['achievements'] as const,
+  leaderboard: (scope: string) => ['leaderboard', scope] as const,
+  friends: ['friends'] as const,
+  challenges: ['challenges'] as const,
+  notifications: ['notifications'] as const,
+  settings: ['settings'] as const,
+};

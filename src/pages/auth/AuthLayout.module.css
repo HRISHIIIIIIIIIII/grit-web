@@ -1,0 +1,93 @@
+.wrap {
+  display: grid;
+  grid-template-columns: 42% 1fr;
+  height: 100%;
+}
+.brand {
+  position: relative;
+  overflow: hidden;
+  background: var(--ink-900);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 48px;
+}
+.glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(80% 60% at 0% 0%, rgba(var(--accent-rgb), 0.28), transparent 55%),
+    radial-gradient(70% 60% at 100% 100%, rgba(255, 45, 85, 0.18), transparent 55%);
+}
+.brandInner {
+  position: relative;
+  max-width: 420px;
+}
+.logo {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 26px;
+  letter-spacing: 0.04em;
+  margin-bottom: 48px;
+}
+.tagline {
+  color: #fff;
+  font-size: 38px;
+  line-height: 1.1;
+  margin-bottom: 18px;
+}
+.brandCopy {
+  color: var(--ink-400);
+  font-size: 16px;
+  line-height: 1.5;
+}
+.panel {
+  display: grid;
+  place-items: center;
+  padding: 32px;
+  overflow-y: auto;
+}
+.card {
+  width: 100%;
+  max-width: 380px;
+}
+.title {
+  font-size: 30px;
+  margin-bottom: 6px;
+}
+.subtitle {
+  color: var(--ink-500);
+  margin-bottom: 26px;
+}
+.footer {
+  margin-top: 22px;
+  font-size: 14px;
+  color: var(--ink-500);
+  text-align: center;
+}
+.footer a {
+  color: var(--accent-strong);
+  font-weight: 600;
+}
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.formError {
+  background: #fceaec;
+  color: var(--danger);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px 12px;
+  border-radius: var(--r-md);
+}
+
+@media (max-width: 900px) {
+  .wrap {
+    grid-template-columns: 1fr;
+  }
+  .brand {
+    display: none;
+  }
+}
